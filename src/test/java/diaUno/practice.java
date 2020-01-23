@@ -39,6 +39,27 @@ public class practice {
 		String C_URL = driver.getCurrentUrl();
 		Assert.assertEquals(C_URL, "https://selenium.dev/selenium/docs/api/java/index.html");
 	}
+	
+	@Test(priority = 4)
+	public void Practica4() {
+		driver.get(LocatorRepository_Practice.URL);
+		WebElement logoGoogle = driver.findElement(By.id(LocatorRepository_Practice.logoGoogle));
+		Assert.assertTrue(logoGoogle.isDisplayed());
+		WebElement search = driver.findElement(By.xpath(LocatorRepository_Practice.serchFieldXpath));
+		search.clear();
+		search.sendKeys("selenium webdriver" + Keys.ENTER);
+		WebElement selenium = driver.findElement(By.cssSelector(LocatorRepository_Practice.searchResult));
+		selenium.click();
+		WebElement logoSelenium = driver.findElement(By.cssSelector(LocatorRepository_Practice.logoSelenium));
+		Assert.assertTrue(logoSelenium.isDisplayed());
+		WebElement selenium_downloads = driver.findElement(By.cssSelector(LocatorRepository_Practice.pageDownloads));
+		selenium_downloads.click();
+		WebElement selenium_java = driver.findElement(By.cssSelector(LocatorRepository_Practice.pageJavaApi));
+		selenium_java.click();
+		String C_URL = driver.getCurrentUrl();
+		Assert.assertEquals(C_URL, "https://selenium.dev/selenium/docs/api/java/index.html");
+	}
+	
 	@Test(priority = 2)
 	public void Practica2() {
 		driver.get(LocatorRepository.URL);
